@@ -1,68 +1,124 @@
 <!DOCTYPE HTML>
 <html lang="en">
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0 , ">
-		<meta charset="UTF-8">
-		<title>Princess</title>
-		<link rel="stylesheet" type="text/css" href="./css/format.css">
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Cookie&family=Special+Elite&display=swap" rel="stylesheet">	
-	</head>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Princess</title>
+    <link rel="stylesheet" type="text/css" href="./css/format.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Special+Elite&display=swap" rel="stylesheet"> 
+    <style>
+        /* Optional: Add some styling to indicate audio is playing */
+        #audioControlOverlay {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 1000;
+            display: none;
+        }
+    </style>
+</head>
+<body style="margin:0px">
+    <!-- Audio element with muted attribute for initial play -->
+    <audio id="backgroundMusic" loop muted>
+        <source src="./music/music.mp3" type="audio/mpeg">
+        <source src="./music/music.ogg" type="audio/ogg">
+        Your browser does not support the audio element.
+    </audio>
 
-	<body style="margin:0px">
-		<audio autoplay loop>
-			<source src="./music/music.mp3" type="audio/mpeg">
-		</audio>
-		  <canvas></canvas>  
-		<div id="imgTxt">
-			<span id="Txt"></span> <br />
-			<span id="tmp"></span>
-			<img id="img" src="">
-		</div>
-		<div id="heartTxt">
-			<span id="clickMe">Click!</span>
-			<div id="heart">
-				<button id="button" onclick="play()"></button>
-			</div>
-		</div>
-		<div id="content">
-			<h2 id="together">You will be in my arms in</h2>
-			<div id="countdownToNewYear">
-				<b id="d"></b> Days 
-				<b id="h"></b> Hours
-				<b id="m"></b> Minutes
-				<b id="s"></b> Seconds
-			</div>
-		</div>
+    <!-- Optional audio control overlay -->
+    <div id="audioControlOverlay">
+        Music is playing. Click anywhere to control.
+    </div>
 
-    	<div id = "typeDiv">
-        	<span id="txt1"></span> <br />
-        	<span id="txt2"></span> <br/>
-			<span id="txt3"></span> <br/>
-    	</div>		
+    <canvas></canvas>  
+    <div id="imgTxt">
+        <span id="Txt"></span> <br />
+        <span id="tmp"></span>
+        <img id="img" src="">
+    </div>
+    <div id="heartTxt">
+        <span id="clickMe">Click!</span>
+        <div id="heart">
+            <button id="button" onclick="play()"></button>
+        </div>
+    </div>
+    <div id="content">
+        <h2 id="together">You will be in my arms in</h2>
+        <div id="countdownToNewYear">
+            <b id="d"></b> Days 
+            <b id="h"></b> Hours
+            <b id="m"></b> Minutes
+            <b id="s"></b> Seconds
+        </div>
+    </div>
+    <div id="typeDiv">
+        <span id="txt1"></span> <br />
+        <span id="txt2"></span> <br/>
+        <span id="txt3"></span> <br/>
+    </div>
 
-		 <script >
-			var ok = 0;
-			var flag = 1;
-			var myImage = document.getElementById("img");
-			var myTxt = document.getElementById("Txt");
-			var imageArray = ["pic/pic1.png", "pic/pic2.PNG", "pic/pic3.png", "pic/pic4.png", "pic/pic5.png","pic/pic6.png","pic/pic7.png","pic/pic10.png"];
-			var imageIndex = 0;
-			var txtArray = ["I can’t wait for the moment when I’ll finally have you in my arms ❤️.","you make me incredebly happy baby", 
-			          "Hope you like this baby, but you truly deserve so much moree","And we absolutely have to take so many pictures, my 👸🏻",
-					  "I'm really greatfull to have you, just wish to make your day a tiny little better","Thank you for always brightening my day and being by my side, no matter what.",
-					  "Hehe and cant forget my Huvu!!🌷","MY PRINCESS 👸🏻"];
-			var len = imageArray.length;
-			var t = 0;
-		</script>
-		
-		<script type="text/javascript" src="./js/stars.js"></script>
-		<script type="text/javascript" src="./js/typeWriter.js"></script>
-		<script type="text/javascript" src="./js/date.js"></script>
-		<script type="text/javascript" src="./js/playImg.js"></script>
-	</body>
+    <script>
+        var ok = 0;
+        var flag = 1;
+        var myImage = document.getElementById("img");
+        var myTxt = document.getElementById("Txt");
+        var imageArray = ["./pic/pic1.png", "./pic/pic2.PNG", "./pic/pic3.png", "./pic/pic4.png", "./pic/pic5.png","./pic/pic6.png","./pic/pic7.png","./pic/pic10.png"];
+        var imageIndex = 0;
+        var txtArray = ["I can't wait for the moment when I'll finally have you in my arms ❤️.","you make me incredibly happy baby", 
+                      "Hope you like this baby, but you truly deserve so much moree","And we absolutely have to take so many pictures, my 👸🏻",
+                      "I'm really grateful to have you, just wish to make your day a tiny little better","Thank you for always brightening my day and being by my side, no matter what.",
+                      "Hehe and can't forget my Huvu!!🌷","MY PRINCESS 👸🏻"];
+        var len = imageArray.length;
+        var t = 0;
+
+        // Audio Autoplay Solution
+        document.addEventListener('DOMContentLoaded', function() {
+            var audio = document.getElementById('backgroundMusic');
+            var audioOverlay = document.getElementById('audioControlOverlay');
+            var isPlaying = false;
+
+            // Function to toggle audio
+            function toggleAudio() {
+                if (isPlaying) {
+                    audio.pause();
+                    audioOverlay.style.display = 'none';
+                    isPlaying = false;
+                } else {
+                    audio.muted = false;
+                    audio.play().then(() => {
+                        audioOverlay.style.display = 'block';
+                        isPlaying = true;
+                    }).catch(error => {
+                        console.error('Audio play failed:', error);
+                    });
+                }
+            }
+
+            // Click anywhere to play/pause
+            document.body.addEventListener('click', function() {
+                if (!isPlaying) {
+                    toggleAudio();
+                }
+            }, { once: false });
+
+            // Optional: Add keyboard control
+            document.addEventListener('keydown', function(event) {
+                if (event.code === 'Space') {
+                    toggleAudio();
+                }
+            });
+        });
+    </script>
+    <script type="text/javascript" src="./js/stars.js"></script>
+    <script type="text/javascript" src="./js/typeWriter.js"></script>
+    <script type="text/javascript" src="./js/date.js"></script>
+    <script type="text/javascript" src="./js/playImg.js"></script>
+</body>
 </html>
