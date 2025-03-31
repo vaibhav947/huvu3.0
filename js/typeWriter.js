@@ -1,6 +1,6 @@
 let i = 0;
 let text1 = "Hey! Blossom Arora";
-let text2 = "Get excited, baby, because we’ll be together very soon!"
+let text2 = "I Love you babe thanks for coming into my life and making it soo much better Thank You!!!"
 let text3 = "Get excited, baby, because we’ll be together very soon!"
 let speed = 100;
 
